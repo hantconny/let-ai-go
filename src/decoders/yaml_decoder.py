@@ -1,4 +1,6 @@
 """YAML解码器 - 解码YAML格式的订阅内容（Clash格式）"""
+import base64
+import json
 import yaml
 from src.decoders import BaseDecoder
 from loguru import logger
@@ -52,12 +54,10 @@ class YAMLDecoder(BaseDecoder):
             if proxy_type == "ss":
                 password = proxy.get("password", "")
                 cipher = proxy.get("cipher", "aes-256-gcm")
-                import base64
                 userinfo = base64.b64encode(f"{cipher}:{password}".encode()).decode()
                 return f"ss://{userinfo}@{server}:{port}#{name}"
 
             elif proxy_type == "vmess":
-                import json
                 config = {
                     "v": "2",
                     "ps": name,
