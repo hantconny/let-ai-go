@@ -1,0 +1,1 @@
+我会将其他团队从流量中得到的订阅保存起来，然后解析他们。这些订阅可能是clash订阅，也可能是其他订阅。内容可能是全部base64编码的字符串，也可能是clash的yml的明文，也可能是部分base64编码的字符串。协议的类型会是如下几种ss、ssr、trojan、vmess、vless、hysteria、hysteria2。我需要从订阅节点中解析出ip、port、domain、是否使用tls、sni、uuid、传输层协议、应用层协议、cipher、password、authprotocol、obfuscation等。

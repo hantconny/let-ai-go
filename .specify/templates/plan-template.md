@@ -31,7 +31,15 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- [ ] **Spec-First**: Specification exists in `specs/` directory before implementation
+- [ ] **Defensive Programming**: Fault tolerance for UI changes, network issues, anti-scraping
+- [ ] **Code Quality**: PEP8 compliance, English variables, Chinese comments
+- [ ] **Self-Healing**: 3-retry mechanism with screenshot capture on failure
+- [ ] **Tech Stack**: Python 3.10+, Playwright (async), uiautomator2, loguru
+- [ ] **Rate Limiting**: Max 1 req/3s with random jitter
+- [ ] **Data Privacy**: MD5/masking for sensitive data before storage
+- [ ] **Resource Management**: Proper cleanup, no zombie processes
+- [ ] **Observability**: Progress indicators (tqdm), comprehensive logging
 
 ## Project Structure
 
