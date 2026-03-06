@@ -1,0 +1,25 @@
+proxies:
+  - name: Test-SS-YAML
+    type: ss
+    server: yaml.example.com
+    port: 8388
+    cipher: aes-256-gcm
+    password: yaml_password
+
+  - name: Test-VMess-YAML
+    type: vmess
+    server: vmess.yaml.example.com
+    port: 443
+    uuid: 11111111-2222-3333-4444-555555555555
+    alterId: 0
+    cipher: auto
+    tls: true
+    network: ws
+    servername: vmess.yaml.example.com
+
+  - name: Test-Trojan-YAML
+    type: trojan
+    server: trojan.yaml.example.com
+    port: 443
+    password: trojan_yaml_password
+    sni: trojan.yaml.example.com

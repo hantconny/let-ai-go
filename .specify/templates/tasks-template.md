@@ -150,6 +150,17 @@ Examples of foundational tasks (adjust based on your project):
 
 **Purpose**: Improvements that affect multiple user stories
 
+**Constitution Compliance Tasks**:
+- [ ] TXXX Verify PEP8 compliance across all code
+- [ ] TXXX Validate all variables use English names, comments use Chinese
+- [ ] TXXX Ensure 3-retry mechanism with screenshot capture implemented
+- [ ] TXXX Verify rate limiting (1 req/3s + jitter) in all scraping code
+- [ ] TXXX Confirm sensitive data MD5/masking before storage
+- [ ] TXXX Validate resource cleanup (no zombie processes)
+- [ ] TXXX Add progress indicators (tqdm) to all long-running operations
+- [ ] TXXX Verify loguru logging includes: device ID, task ID, time, stack traces
+
+**General Polish**:
 - [ ] TXXX [P] Documentation updates in docs/
 - [ ] TXXX Code cleanup and refactoring
 - [ ] TXXX Performance optimization across all stories

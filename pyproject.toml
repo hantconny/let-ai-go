@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "subscription-parser"
+version = "1.0.0"
+description = "订阅解析器 - Proxy subscription file parser"
+requires-python = ">=3.12"
+dependencies = [
+    "redis>=5.0.0",
+    "pyyaml>=6.0",
+    "loguru>=0.7.0",
+    "tqdm>=4.65.0",
+    "requests>=2.31.0",
+]
+
+[project.scripts]
+subscription-parser = "src.cli.main:app"
+
+[tool.black]
+line-length = 88
+target-version = ["py312"]
+
+[tool.flake8]
+max-line-length = 88
+extend-ignore = ["E203", "W503"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = false
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]

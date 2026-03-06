@@ -1,0 +1,7 @@
+ss://YWVzLTI1Ni1nY206cGFzc3dvcmQxMjM=@example.com:8388#Test-SS
+vmess://eyJ2IjogIjIiLCAicHMiOiAiVGVzdC1WTWVzcyIsICJhZGQiOiAidm1lc3MuZXhhbXBsZS5jb20iLCAicG9ydCI6ICI0NDMiLCAiaWQiOiAiMTIzNDU2NzgtMTIzNC0xMjM0LTEyMzQtMTIzNDU2Nzg5MDEyIiwgImFpZCI6ICIwIiwgIm5ldCI6ICJ3cyIsICJ0eXBlIjogIm5vbmUiLCAidGxzIjogInRscyIsICJzbmkiOiAidm1lc3MuZXhhbXBsZS5jb20iLCAic2N5IjogImF1dG8ifQ==
+trojan://mypassword@trojan.example.com:443?sni=trojan.example.com#Test-Trojan
+vless://87654321-4321-4321-4321-210987654321@vless.example.com:443?type=tcp&security=tls&sni=vless.example.com#Test-VLESS
+hysteria://hysteria.example.com:443?auth=hysteria_password&peer=hysteria.example.com#Test-Hysteria
+hysteria2://hysteria2_password@hysteria2.example.com:443?sni=hysteria2.example.com#Test-Hysteria2
+ssr://c3NyLmV4YW1wbGUuY29tOjQ0MzphdXRoX3NoYTFfdjQ6YWVzLTI1Ni1jZmI6aHR0cF9zaW1wbGU6YzNOeVgzQmhjM04zYjNKay8/cmVtYXJrcz1WR1Z6ZEMxVFUxST0=

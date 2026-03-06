@@ -1,50 +1,123 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+- Version change: Initial → 1.0.0
+- Modified principles: N/A (initial creation)
+- Added sections:
+  * Core Principles (4 principles)
+  * Tech Stack Constraints
+  * Security & Compliance
+  * Delivery Quality Standards
+  * Governance
+- Removed sections: N/A
+- Templates requiring updates:
+  ✅ plan-template.md - Constitution Check section aligned
+  ✅ spec-template.md - Requirements section aligned with principles
+  ✅ tasks-template.md - Task categorization aligned with quality standards
+- Follow-up TODOs: None
+-->
+
+# Let-AI-Go Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Spec-First Development (先规范后代码)
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+All feature development MUST begin with a corresponding business logic specification in the `specs/` directory. No code implementation is permitted without an approved specification document.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+**Rationale**: Ensures alignment between business requirements and technical implementation, reduces rework, and provides clear documentation for team review.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### II. Defensive Programming (防御性编程)
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+Web scraping and automation scripts MUST anticipate target changes. All implementations MUST include fault tolerance for:
+- UI element changes and layout modifications
+- Network fluctuations and timeout scenarios
+- Anti-scraping mechanism upgrades
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+**Rationale**: Target systems evolve continuously. Defensive programming ensures script longevity and reduces maintenance overhead.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### III. Code Quality Standards (代码整洁度)
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+- MUST follow PEP8 coding standards
+- Variable names MUST be semantic and in English
+- Comments MUST be written in Chinese for team review purposes
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+**Rationale**: Balances international coding standards with team communication efficiency. English variable names ensure code portability while Chinese comments facilitate internal collaboration.
+
+### IV. Self-Healing Capability (自愈能力)
+
+When UI element location fails, scripts MUST:
+- Automatically retry up to 3 times
+- Save screenshot to `debug/screenshots/` on the 3rd failure
+- Log failure context with device ID, task ID, and error details
+
+**Rationale**: Reduces manual intervention requirements and provides debugging artifacts for rapid issue resolution.
+
+## Tech Stack Constraints
+
+**Language**: Python 3.10+
+
+**Web Scraping**:
+- MUST use Playwright in async mode
+- MUST NOT use raw `requests` library for large-scale scraping without proper encapsulation
+
+**Mobile Automation**:
+- MUST use uiautomator2 for Android automation
+
+**Logging System**:
+- MUST use loguru
+- Logs MUST include: device ID, task ID, execution time, exception stack traces
+
+**Rationale**: Standardized tech stack ensures consistency, maintainability, and team expertise concentration.
+
+## Security & Compliance
+
+### Rate Limiting (频率控制)
+
+- Single device/account scraping frequency MUST NOT exceed business baseline (default: 1 request per 3 seconds)
+- MUST implement `random.uniform` jitter to avoid detection patterns
+
+### Data Privacy (脱敏要求)
+
+- User information (phone numbers, IDs) MUST be MD5 hashed or masked before database insertion
+- No plaintext sensitive data in logs or storage
+
+### Resource Management (资源回收)
+
+- Scripts MUST enforce cleanup on exit or error
+- MUST NOT produce zombie processes
+- All browser instances, network connections, and file handles MUST be properly closed
+
+**Rationale**: Compliance with data protection regulations, respect for target systems, and operational stability.
+
+## Delivery Quality Standards
+
+### Observability (可观测性)
+
+- MUST generate real-time progress indicators (e.g., using tqdm)
+- MUST log all critical operations with timestamps and context
+- MUST provide clear error messages with actionable information
+
+### Testing Requirements
+
+- All scripts MUST be tested with simulated failure scenarios
+- MUST verify self-healing mechanisms work as expected
+- MUST validate rate limiting and privacy controls
+
+**Rationale**: Ensures production readiness and reduces incident response time.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution supersedes all other development practices. All code reviews, pull requests, and deployments MUST verify compliance with these principles.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Amendment Process**:
+1. Proposed changes MUST be documented with rationale
+2. Team approval required before adoption
+3. Version increment according to semantic versioning
+4. Migration plan required for breaking changes
+
+**Compliance Review**:
+- All PRs MUST pass constitution compliance checks
+- Any complexity or deviation MUST be explicitly justified
+- Regular audits to ensure ongoing adherence
+
+**Version**: 1.0.0 | **Ratified**: 2026-03-05 | **Last Amended**: 2026-03-05

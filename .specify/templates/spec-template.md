@@ -80,6 +80,12 @@
 <!--
   ACTION REQUIRED: The content in this section represents placeholders.
   Fill them out with the right functional requirements.
+
+  CONSTITUTION ALIGNMENT:
+  - Ensure defensive programming requirements (fault tolerance, retries)
+  - Include rate limiting and privacy requirements where applicable
+  - Specify observability requirements (logging, progress tracking)
+  - Define resource cleanup requirements
 -->
 
 ### Functional Requirements
